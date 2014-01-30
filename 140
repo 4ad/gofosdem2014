@@ -1,0 +1,9 @@
+== Introduction ==
+
+Why port?
+	massive learning oportunity
+		about Go internals
+		about operating systems
+	very useful to understand internals, even when working high level
+	improve Go
+	use great tools specific to an OS (e.g. DTrace)

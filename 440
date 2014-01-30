@@ -1,0 +1,7 @@
+== Go internals 101 ==
+= syscall package =
+
+Most Unix and Plan 9
+	(generated) code calls indirect system call wrapper in assembly
+	system call stability
+	TLS implications in avoiding libc

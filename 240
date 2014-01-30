@@ -1,0 +1,9 @@
+== Go internals 101 ==
+= A tour through the toolchain =
+
+Assemblers
+	Calling convention
+		no (real) frame pointers
+		stack based
+		Go return values also on stack
+		C functions return in AX

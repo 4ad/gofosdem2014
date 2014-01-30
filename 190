@@ -1,0 +1,8 @@
+== Go internals 101 ==
+= A tour through the toolchain =
+
+Building Go
+	Bootstrapping
+		../go/src/make.bash:/Building
+
+	cmd/dist is your friend

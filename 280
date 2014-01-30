@@ -1,0 +1,8 @@
+== Go internals 101 ==
+= A tour through the toolchain =
+
+Linkers
+	cgo
+	external and internal linking
+
+	future plans: https://golang.org/s/go13linker

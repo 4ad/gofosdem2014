@@ -1,0 +1,8 @@
+== Go internals 101 ==
+= The runtime =
+
+Scheduling
+	abstract locks and semaphores on top of OS primitives
+	Gs, Ms, and Ps
+	the g and m extern register variables
+	some description by Daniel Morsing: http://morsmachine.dk/go-scheduler

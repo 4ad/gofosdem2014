@@ -1,0 +1,7 @@
+== Go internals 101 ==
+= syscall package =
+
+Runtime considerations
+	entersyscall/exitsyscall
+	Gsyscall, scheduling
+	thread limits

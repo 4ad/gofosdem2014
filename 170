@@ -1,0 +1,8 @@
+== Go internals 101 ==
+= A tour through the toolchain =
+
+Building Go
+	Nice description by Dave Cheney: 
+		http://dave.cheney.net/2013/06/04/how-go-uses-go-to-build-itself
+
+	read it, play with the tools

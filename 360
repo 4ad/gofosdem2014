@@ -1,0 +1,11 @@
+== Go internals 101 ==
+= The runtime =
+
+Segmented stacks
+	traditional stack management
+	segmented stacks
+		role of g in segmented stacks
+		mechanism for preemption
+	contiguous stacks
+		https://docs.google.com/document/d/1wAaf1rYoM4S4gtnPh0zOlGzWtrZFQ5suE8qr2sD8uWQ/pub
+		precise gc

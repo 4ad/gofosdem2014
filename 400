@@ -1,0 +1,5 @@
+== Go internals 101 ==
+= The runtime =
+
+Timers
+	timer goroutine

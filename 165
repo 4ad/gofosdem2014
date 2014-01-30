@@ -1,0 +1,9 @@
+== Go internals 101 ==
+= A tour through the toolchain =
+
+Tree organization
+	tools		like cmd/6g
+	packages	like os/signal
+	objects		compiler artefacts
+	binaries 	executables, produced by the linker (cmd/6l)
+

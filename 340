@@ -1,0 +1,7 @@
+== Go internals 101 ==
+= The runtime =
+
+Scheduling
+	G creation and lifetime management
+	preemption points
+	g0

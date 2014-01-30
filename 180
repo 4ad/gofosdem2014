@@ -1,0 +1,8 @@
+== Go internals 101 ==
+= A tour through the toolchain =
+
+Building Go
+	{all,make,run}.{bash,rc,bat}	../go/src
+	cmd/dist		../go/src/cmd/dist
+	cmd/go			../go/src/cmd/go
+	build tags		../go/src/pkg/go/build/doc.go:/Constraints

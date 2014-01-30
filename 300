@@ -1,0 +1,7 @@
+== Go internals 101 ==
+= The runtime =
+
+Runtime services
+	entry point of programs
+	written in a mix of C, assembly and Go
+	portable code calling arch- or os-specific code

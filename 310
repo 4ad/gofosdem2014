@@ -1,0 +1,7 @@
+== Go internals 101 ==
+= The runtime =
+
+Runtime system calls
+	not to be confused with regular systems calls
+	backend to implement various runtime services
+	provide kernel threads and synchronization primitives to the runtime

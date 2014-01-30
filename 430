@@ -1,0 +1,7 @@
+== Go internals 101 ==
+= syscall package =
+
+mksyscall.pl
+	uses C headers to generate types, functions and constants
+	usually uses kernel headers
+	mostly a cross-tool

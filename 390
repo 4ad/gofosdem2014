@@ -1,0 +1,5 @@
+== Go internals 101 ==
+= The runtime =
+
+Profiling
+	signals + introspection = profiling

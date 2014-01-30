@@ -1,0 +1,9 @@
+== Go internals 101 ==
+= The runtime =
+
+Introspection
+	stacktraces
+	panics
+	deadlock detector
+	race detector
+

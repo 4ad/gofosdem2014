@@ -1,0 +1,253 @@
+=== Porting Go Notes.===
+
+== Introduction ==
+
+Why is porting/learning about porting useful?
+  Learn more about Go internals.
+    Useful even when working higher level.
+  Learn more about the target operating system.
+  Improve Go.
+  Who knows, actual port!
+    (side effect: expand Go community with experts)
+    use facilities not available on other OSes, e.g. DTrace
+    use Go at your job, nice for devops
+  Fun!
+
+== Go internals 101 ==
+
+Tree organization
+  build tags
+
+A tour through the toolchain
+  building
+    bootstrapping
+      the dist tool
+  Compilers
+    (liblink?)
+    NOSPLIT
+  Assemblers
+    calling convention now or later?
+    NOSPLIT
+  cmd/pack (unix ar)
+  Linkers
+    general description
+    split stacks (partial)
+    cgo (partial)
+    external and internal linking
+  goc?
+  future plans for the toolchain (rewrite in Go)
+
+The runtime
+  runtime services
+    runtime (not syscall) system calls
+      goc?
+    split stacks (just mention)
+    gc
+    scheduling
+      locks and semaphores
+      Gs, Ms, and Ps
+        G creation and lifetime management
+          G state transitions
+          split stacks
+            regular stacks
+            split stacks
+            contiguous stacks
+              precise gc
+          g0, (gsignal later)
+        M creation and lifetime management
+      when does scheduling happen
+        discuss Ps here?
+      (syscall discussion later?)
+    timers
+      timer goroutine
+    signals
+      how do Unix signals work?
+      how does the runtime leverage this.
+        gsignal
+      how do Go programs interface with the runtime at a higher level?
+    walking stacks
+    panics
+    profiling
+    (channels, select?)
+
+syscall
+  bottom-up: system calls at OS level
+  top down: how does Go do it
+    using unsafe to convert between C and Go types
+    entersyscall/exitsyscall
+      what happens in the runtime
+    implementation
+      Unix
+      Windows
+      mksyscall.pl
+    discussion: runtime vs. syscall
+      written in Go, not C
+    system call stability
+      Linux
+      BSD
+      OS X
+      Plan 9
+      Windows
+      Solaris
+
+time, os/signal
+  small wrappers over runtime
+
+net
+(  net unix history
+    fork, no threads
+    select, poll (i/o multiplexing)
+      why is select slow
+      /dev/poll, epoll, kqueue, i/o completion ports
+  )
+  runtime integration
+    network poller
+      rationale
+      implementation
+        net interposition
+        runtime
+          portable code
+          backends (kqueue, epoll, etc)
+      Windows, Plan 9, gccgo notes
+      future plans (poller for regular I/O)
+
+== Porting Go ==
+
+Adding a new GOOS
+  Trivial stuff
+    cmd/dist, go/build
+    compilers (for now)
+  Linkers
+    your friends: readelf, objcopy, objdump, libmach, etc
+    ELF
+      ELF stuff
+    non-ELF
+      supported? (e.g. a.out)
+      not supported?
+
+Decide if to cross compile or work natively
+  we worked natively
+    explain why
+    even so, make sure cross compiling works
+    make sure you don't break other ports, dogfood your tree
+  some mentions about cross compilation
+
+C/assembly hello world (linker work validation)
+  write assembly hello world without libc on your target OS using target tools
+  do the same using 6a/6l
+    use cmd/pack to circumvent the runtime
+    NOSPLIT is your friend
+    you might need to disable DWARF (why?)
+  do the same using 6c/6l
+    same as above
+  start creating a minimal syscall runtime (in C and/or assembly)
+    add basic stuff: open, write, thread stuff, signal stuff etc.
+    add test infrastructure
+    prototype everything in minimal runtime before implementing in real
+    always test, you will change the linker and it will break
+    always test with the external linker too
+      dummy runtime/cgo
+    keep intermediate object files, analyse them
+      preferably keep them forever using versioning filesystem
+        explain how we fixed the linker using old objects
+  learn how to use debugging tools
+    gdb, truss or strace are a must
+    target debugger (mdb), dtrace better
+    using debuggers, learn how to manually walk a stack
+    forget about the Go gdb integration
+      if you use gdb, build gdb --without-python
+  make sure TLS works
+    cmd/dist and linker work
+    use native TLS procedure
+      negative offsets to %fs (solaris, probably every elf)
+      if you can't use native TLS, see what libc (any libc) does
+        check for a system call that sets FS.base (might be private)
+      discussion
+
+Go runtime
+  don't use alt runtime for Go, but don't throw out alt yet
+  if possible, use gccgo to compile the cgo tool and maybe the go tool as well
+  tree organization
+  fix build (not run) for Go programs
+    cgo is your friend
+      if you don't have gccgo, use cgo on your host system with headers from the target, hack your way through this
+      don't do manual stuff.
+    add necessary signals
+    stub what's needed in os_GOOS files
+      panic, don't just leave empty functions
+        since panics probably don't work yet, divide by zero
+  startup sequence
+    set up TLS
+    make it work until you hit your stubbed files
+  implements stubs, as you hit them
+  make sure syscalls can return errors
+    you'd be amazed how far things can go without errors
+    e.g. the go tool runs, list and compiles packages
+  at some point hello world works
+    don't rejoice, signals don't work
+      better fix now, or disable them
+        if you don't fix or disable signals now, you'll feel pain
+  write your signal trampoline
+    you might need to interpose some function when calling newosproc
+    be careful who might call the signal trampoline, it might be libc!
+      don't trash registers
+      don't trash errno (signal might interrupt system call)
+  add more stuff to your testing infrastructure, you can start running the low-level compiler tests
+    test stuff that grows the stack, divides by zero (generates signals), etc
+
+Move on to syscall
+  copy file with syscall wrappers or write your own
+  fix mksyscall.pl and associated files
+  generate zfiles
+  test and fix stuff that's broken
+  special attention to forkAndExecInChild
+    you might cheat and avoid signals here if you disabled them in the runtime, e.g. forcx(NOSIGCHLD)
+    make sure the wait functions work
+    if your syscalls are not assembly but use libc, make sure you use NOSPLIT stuff from the runtime, not Go-generated zfiles
+    avoid vfork
+    some systems (os x, solaris) have different fork semantics if you call from assembly that the regular Unix semantics available through libc
+      use libc
+      if you don't use libc, make sure you understand the semantics. alt is your friend here
+    on some systems fork copies threads, if that's the case learn how to disable that
+  make sure mkall.sh works, it's your friend
+  ???
+  
+os, other high level stuff
+  make the go tool work
+  ???
+
+net
+  mention cgo
+  network poller
+    disable, enable
+      check Plan 9 for disabled
+    if enabled, write one
+      you can port a select(2) based one first
+  ???
+
+Fixing and avoiding bugs
+  error-prone stuff
+    Solaris mistakes
+  live fixing of Solaris bugs using debugger
+    some signal stuff, perhaps register trashing in sigtramp
+    other stuff (what?)
+      perhaps 4 byte instead of 8 byte errno
+      perhaps ignoring seconds in nanosleep
+
+DTrace
+  DTrace 101
+  problems with DTracing Go
+  magic that allows DTracing Go
+  demo
+
+cgo?
+
+Tips and tricks?
+  have a partner
+  avoid hg
+  always look into the kernel
+    you only need to use exported interfaces, but looking in the kernel can give you an idea of what you need to do, or what's not supported
+    if you don't have source code, look into the assembly, it's not hard
+  ???
+
+Questions

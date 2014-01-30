@@ -1,0 +1,13 @@
+== Go internals 101 ==
+= The runtime =
+
+Runtime services
+	channels, select
+	goroutines, goroutine scheduling
+	split stacks
+	cgo interfacing
+	garbage collection
+	timers
+	signals
+	profiling
+	debugging

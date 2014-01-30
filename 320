@@ -1,0 +1,6 @@
+== Go internals 101 ==
+= The runtime =
+
+Runtime system calls
+	usually implemented in assembly (by hand)
+	exception: Windows and Solaris

@@ -1,0 +1,9 @@
+== Go internals 101 ==
+= syscall package =
+
+Windows and Plan 9
+	cgo overview
+	#pragma dynimport
+	linker relocations
+	expensive, mostly runtime, syscall use dynamic loader functions
+	ABI translation

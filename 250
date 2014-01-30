@@ -1,0 +1,5 @@
+== Go internals 101 ==
+= A tour through the toolchain =
+
+cmd/pack
+	just like Unix ar

@@ -1,0 +1,8 @@
+== Go internals 101 ==
+= A tour through the toolchain =
+
+Compilers
+	extensions over ANSI C
+	most important:	extern register	storage class
+
+	future plans: https://golang.org/s/go13compiler

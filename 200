@@ -1,0 +1,16 @@
+== Go internals 101 ==
+= A tour through the toolchain =
+
+Compilers
+	written in C (for now)
+	C compilers come from Plan 9/Inferno
+	Go compilers are new programs, but similar
+
+	manual
+		http://plan9.bell-labs.com/magic/man2html/1/8c
+
+	Plan 9 C Compilers (Ken Thompson)
+		http://doc.cat-v.org/plan_9/4th_edition/papers/compiler
+
+	How to Use the Plan 9 C Compiler (Rob Pike)
+		http://doc.cat-v.org/plan_9/4th_edition/papers/comp

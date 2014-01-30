@@ -1,0 +1,11 @@
+== Go internals 101 ==
+= A tour through the toolchain =
+
+Assemblers
+	Plan 9 originals documented at:
+		http://plan9.bell-labs.com/sys/doc/asm.html
+
+	Go assembly guide:
+		http://golang.org/doc/asm
+
+	hide stuff from you

@@ -1,0 +1,6 @@
+== Go internals 101 ==
+= syscall package =
+
+Overview
+	primary interface to the outside world
+	very OS-specific, some commonality on Unix platforms

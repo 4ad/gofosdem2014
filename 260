@@ -1,0 +1,13 @@
+== Go internals 101 ==
+= A tour through the toolchain =
+
+Linkers
+	architecture described to some degree in:
+		http://doc.cat-v.org/plan_9/4th_edition/papers/compiler
+
+	documented at:
+		http://plan9.bell-labs.com/magic/man2html/1/8l
+		http://golang.org/cmd/ld
+
+	generate machine-specific binaries
+		a.out, ELF, PE, Mach-O (see the -H flag)
