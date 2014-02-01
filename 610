@@ -1,0 +1,10 @@
+== Porting Go Primer ==
+= low-level bits =
+
+Validate the linker (alt)
+	errno
+		uses TLS
+	use native TLS procedure
+		negative %fs displacements
+		FS.base
+	don't move to real runtime until you have TLS in alt

@@ -1,0 +1,7 @@
+== Porting Go Primer ==
+= os =
+
+Go tool
+	good test case
+		simple, yet uses reasonably complete functionality
+	low-level compiler tests

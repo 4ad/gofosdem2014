@@ -1,0 +1,10 @@
+== Porting Go Primer ==
+= low-level bits =
+
+Validate the linker (alt)
+	stub symbols
+	basic syscalls
+		files, kernel threads, signals, synchronization
+		fork
+		pipe
+

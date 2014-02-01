@@ -1,0 +1,8 @@
+== Go internals 101 ==
+= net package =
+
+Overview
+	Go, not Posix architecture
+	abstracts Berkeley sockets on Unix and Windows, regular file I/O over /net in Plan 9
+	cgo
+	network poller

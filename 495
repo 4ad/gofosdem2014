@@ -1,0 +1,6 @@
+== Porting Go Primer ==
+= adding a new GOOS =
+
+General considerations
+	cross-compilation
+	dogfooding

@@ -1,0 +1,6 @@
+== Porting Go Primer ==
+= adding a new GOOS =
+
+Linkers
+	binary formats
+	your friends: readelf, objcopy, objdump, libmach, etc

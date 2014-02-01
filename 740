@@ -1,0 +1,8 @@
+== Porting Go Primer ==
+= syscall =
+
+forkAndExecInChild
+	fork might copy threads
+	NOSIGCHLD
+	vfork
+	unusual semantics

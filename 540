@@ -1,0 +1,7 @@
+== Porting Go Primer ==
+= low-level bits =
+
+Validate the linker
+	assembly hello world using "regular" tools
+		ensures you know how to invoke kernel services (usually by making a system call)
+	try the same with 6a/6l

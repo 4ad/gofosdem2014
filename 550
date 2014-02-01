@@ -1,0 +1,6 @@
+== Porting Go Primer ==
+= low-level bits =
+
+Validate the linker (6a)
+	use cmd/pack to replace program startup
+	NOSPLIT is your friend

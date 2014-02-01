@@ -1,0 +1,6 @@
+== Porting Go Primer ==
+= low-level bits =
+
+Validate the linker (6c)
+	do the same with 6c
+	DWARF notes

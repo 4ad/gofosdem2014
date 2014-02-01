@@ -1,0 +1,7 @@
+== Porting Go Primer ==
+= net =
+
+network poller
+	disable first
+	writing a network poller
+	gccgo and select(2)

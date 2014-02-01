@@ -1,0 +1,6 @@
+== Porting Go Primer ==
+= low-level bits =
+
+Validate the linker (6c)
+	you will need to call assembly, internalize calling conventions here
+	ABI translation

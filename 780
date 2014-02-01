@@ -1,0 +1,5 @@
+== Porting Go Primer ==
+= net =
+
+go get
+	CA bundles, openssl

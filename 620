@@ -1,0 +1,8 @@
+== Porting Go Primer ==
+= low-level bits =
+
+Validate the linker (alt)
+	gdb, mdb, acid
+	truss, strace
+	dtrace
+	gdb --without-python

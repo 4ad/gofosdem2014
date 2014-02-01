@@ -1,0 +1,7 @@
+== Porting Go Primer ==
+= fixing and avoiding bugs =
+
+General considerations
+	hello world is easy, production quality is hard
+	error prone things
+	Solaris mistakes

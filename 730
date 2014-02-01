@@ -1,0 +1,9 @@
+== Porting Go Primer ==
+= syscall =
+
+zfiles
+	mksyscall.pl
+	syscall wrappers
+	kernel headers
+	analyze generated types, esp. 0-length types
+	mkall.sh

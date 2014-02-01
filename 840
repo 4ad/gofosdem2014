@@ -1,0 +1,6 @@
+== DTrace ==
+
+Go problems
+	non-standard calling convention
+		arguments and return values
+		stacks

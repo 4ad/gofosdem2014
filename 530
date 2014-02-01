@@ -1,0 +1,9 @@
+== Porting Go Primer ==
+= adding a new GOOS =
+
+non-ELF
+	supported?
+		same for ELF
+		pray it works (beware of bitrot)
+	non-supported?
+		familiarize first, add support to linkers later

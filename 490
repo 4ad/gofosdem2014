@@ -1,0 +1,7 @@
+== Go internals 101 ==
+= net package =
+
+Network poller
+	rationale
+	implementation
+	future plans: poller for regular I/O

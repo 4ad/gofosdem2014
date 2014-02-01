@@ -1,0 +1,5 @@
+== Porting Go Primer ==
+= syscall =
+
+Introductory notes
+	if your platform uses libc, use libc

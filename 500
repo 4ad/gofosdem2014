@@ -1,0 +1,6 @@
+== Porting Go Primer ==
+= adding a new GOOS =
+
+Trivial stuff first:
+	cmd/dist, go build
+	compilers

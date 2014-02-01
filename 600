@@ -1,0 +1,9 @@
+== Porting Go Primer ==
+= low-level bits =
+
+Validate the linker (alt)
+	prototype in alt, always
+	test, even much further in the port where you don't use alt, still check it
+	keep objects forever
+	runtime/cgo
+	external linker

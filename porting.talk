@@ -113,6 +113,13 @@ net
 
 == Porting Go ==
 
+Decide if to cross compile or work natively
+  we worked natively
+    explain why
+    even so, make sure cross compiling works
+    make sure you don't break other ports, dogfood your tree
+  some mentions about cross compilation
+
 Adding a new GOOS
   Trivial stuff
     cmd/dist, go/build
@@ -124,13 +131,6 @@ Adding a new GOOS
     non-ELF
       supported? (e.g. a.out)
       not supported?
-
-Decide if to cross compile or work natively
-  we worked natively
-    explain why
-    even so, make sure cross compiling works
-    make sure you don't break other ports, dogfood your tree
-  some mentions about cross compilation
 
 C/assembly hello world (linker work validation)
   write assembly hello world without libc on your target OS using target tools
@@ -251,3 +251,6 @@ Tips and tricks?
   ???
 
 Questions
+
+# changes
+	monoculture is death, every machine is a Vax etc.

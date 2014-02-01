@@ -1,0 +1,8 @@
+== Porting Go Primer ==
+= runtime =
+
+threads
+	1:1 threads
+	kernel services vs. POSIX threads
+	m's might require special pre-initialization
+	errno

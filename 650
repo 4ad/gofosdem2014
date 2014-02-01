@@ -1,0 +1,9 @@
+== Porting Go Primer ==
+= runtime =
+
+Fixing the build
+	signals
+	os_GOOS stubs
+		hg cp
+		panic
+	cmd/dist

@@ -1,0 +1,8 @@
+== Porting Go Primer ==
+= runtime =
+
+Startup sequence
+	TLS
+		../go/src/cmd/dist/buildruntime.c:/zasmhdr
+		setup
+	hit os_GOOS.c

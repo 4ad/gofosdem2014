@@ -1,0 +1,7 @@
+== Porting Go Primer ==
+= runtime =
+
+The cgo tool
+	use gccgo to compile it
+	run gc cgo on a supported machine with host headers
+	cgo is your friend

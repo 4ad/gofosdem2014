@@ -1,0 +1,6 @@
+== Porting Go Primer ==
+= low-level bits =
+
+Validate the linker (alt)
+	create a minimal runtime (runtime/alt)
+	create test infrastructure so you can compile C and assembly programs

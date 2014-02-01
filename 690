@@ -1,0 +1,6 @@
+== Porting Go Primer ==
+= runtime =
+
+synchronization
+	POSIX locks vs. kernel services
+	futex

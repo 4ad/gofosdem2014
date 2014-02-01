@@ -1,0 +1,9 @@
+== Porting Go Primer ==
+= runtime =
+
+os_GOOS.c
+	common things between platforms
+	slightly common things between platforms
+	different things
+		kernel threads
+		synchronization

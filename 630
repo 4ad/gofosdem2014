@@ -1,0 +1,7 @@
+== Porting Go Primer ==
+= runtime =
+
+Introductory notes
+	keep alt
+	tree organization
+	the cgo tool

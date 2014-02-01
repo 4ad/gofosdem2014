@@ -1,0 +1,8 @@
+== Porting Go Primer ==
+= runtime =
+
+signals
+	signal trampoline
+	calling context
+	interrupted system calls
+	signals are your enemy, defeat it now or risc pain later

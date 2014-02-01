@@ -1,0 +1,7 @@
+== Porting Go Primer ==
+= adding a new GOOS =
+
+ELF
+	use both popular (linux) and non-popular (openbsd) as template
+	platform specific stuff
+	solaris notes
