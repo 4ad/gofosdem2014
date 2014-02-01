@@ -1,2 +1,2 @@
 index:QV:
-	ls _start ??? > index
+	ls [0-9][0-9][0-9]* > index
