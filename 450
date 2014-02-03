@@ -1,7 +1,7 @@
 == Go internals 101 ==
 = syscall package =
 
-Windows and Plan 9
+Windows and Solaris
 	no stable system call interface (require libc)
 	no (stable) indirect system call
 	use some cgo-machinery
